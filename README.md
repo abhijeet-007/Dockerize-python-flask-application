@@ -30,13 +30,3 @@ This project helps us understand and know how to dockerize an application (pytho
 
 - `curl localhost:5000`
 - Or open http://localhost:5000/ in your browser
-
-## 5-Bonus
-
-All in one script could be found at [demo_project.sh](./demo_project.sh)
-
-## Related link
-
-- https://pypi.org/project/Flask/
-- https://www.docker.com/
-- https://github.com/tungbq/devops-basic/blob/main/topics/docker/README.md
