@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Flask App{% endblock %}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; color: #333; }
+
+    nav {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      padding: 14px 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); }
+    nav .brand { font-size: 20px; font-weight: 700; margin-right: auto; }
+
+    .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    h1 { font-size: 26px; margin-bottom: 20px; color: #4a4a8a; }
+    h2 { font-size: 18px; margin-bottom: 14px; color: #555; }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 12px;
+      transition: border 0.2s;
+    }
+    input:focus, textarea:focus { outline: none; border-color: #667eea; }
+
+    button {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    button:hover { opacity: 0.88; }
+
+    .btn-danger {
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      padding: 6px 14px;
+      font-size: 13px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .tag-done { background: #d4edda; color: #155724; }
+    .tag-pending { background: #fff3cd; color: #856404; }
+
+    .flash { background: #d4edda; color: #155724; padding: 12px 18px; border-radius: 8px; margin-bottom: 16px; }
+    .flash-error { background: #f8d7da; color: #721c24; }
+
+    a { color: #667eea; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .post-meta { font-size: 13px; color: #999; margin-bottom: 10px; }
+    .post-body { line-height: 1.7; color: #555; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="brand" style="color:white;">🚀 Flask App</a>
+    <a href="/todos">📝 Todos</a>
+    <a href="/blog">📰 Blog</a>
+  </nav>
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="flash {% if category == 'error' %}flash-error{% endif %}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

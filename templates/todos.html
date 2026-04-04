@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Todos{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>📝 My Todos</h1>
+  {% if todos %}
+    {% for todo in todos %}
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid #f0f0f0;">
+      <span>
+        <span class="tag {% if todo.done %}tag-done{% else %}tag-pending{% endif %}">
+          {{ '✅ Done' if todo.done else '⏳ Pending' }}
+        </span>
+        &nbsp; {{ todo.title }}
+      </span>
+      <form method="POST" action="/todos/{{ todo.id }}/delete" style="margin:0;">
+        <button class="btn-danger" type="submit">🗑 Delete</button>
+      </form>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p style="color:#aaa;">No todos yet. Add one below!</p>
+  {% endif %}
+</div>
+
+<div class="card">
+  <h2>➕ Add Todo</h2>
+  <form method="POST" action="/todos/new">
+    <input name="title" placeholder="What needs to be done?" required/>
+    <button type="submit">Add</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>📰 Mini Blog</h1>
+  {% if posts %}
+    {% for post in posts %}
+    <div style="padding:14px 0; border-bottom:1px solid #f0f0f0;">
+      <a href="/blog/{{ post.id }}" style="font-size:17px; font-weight:600;">{{ post.title }}</a>
+      <div class="post-meta">📅 {{ post.date }}</div>
+      <div class="post-body">{{ post.body[:120] }}{% if post.body|length > 120 %}...{% endif %}</div>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p style="color:#aaa;">No posts yet. Write one below!</p>
+  {% endif %}
+</div>
+
+<div class="card">
+  <h2>✍️ New Post</h2>
+  <form method="POST" action="/blog">
+    <input name="title" placeholder="Post title" required/>
+    <textarea name="body" placeholder="Write your post..." rows="5" required></textarea>
+    <button type="submit">Publish</button>
+  </form>
+</div>
+{% endblock %}

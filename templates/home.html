@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div style="text-align:center; padding: 40px 0 20px;">
+  <h1 style="font-size:36px; color:#4a4a8a;">👋 Welcome to Flask App</h1>
+  <p style="color:#888; margin-top:10px; font-size:16px;">Running inside Docker — pick a section to get started</p>
+</div>
+
+<div style="display:flex; gap:24px; margin-top:30px; flex-wrap:wrap;">
+
+  <a href="/todos" style="flex:1; min-width:240px; text-decoration:none;">
+    <div class="card" style="text-align:center; cursor:pointer; transition: transform 0.2s; border-top: 5px solid #667eea;">
+      <div style="font-size:52px; margin-bottom:16px;">📝</div>
+      <h2 style="color:#667eea; font-size:22px;">Todos</h2>
+      <p style="color:#888; margin-top:10px; font-size:14px;">
+        Manage your tasks — add, track, and delete todos with ease.
+      </p>
+      <div style="margin-top:20px;">
+        <span style="background:linear-gradient(135deg,#667eea,#764ba2); color:white; padding:8px 22px; border-radius:20px; font-size:14px; font-weight:600;">
+          Go to Todos →
+        </span>
+      </div>
+    </div>
+  </a>
+
+  <a href="/blog" style="flex:1; min-width:240px; text-decoration:none;">
+    <div class="card" style="text-align:center; cursor:pointer; transition: transform 0.2s; border-top: 5px solid #f5576c;">
+      <div style="font-size:52px; margin-bottom:16px;">📰</div>
+      <h2 style="color:#f5576c; font-size:22px;">Blog</h2>
+      <p style="color:#888; margin-top:10px; font-size:14px;">
+        Write and read posts — share your thoughts with the world.
+      </p>
+      <div style="margin-top:20px;">
+        <span style="background:linear-gradient(135deg,#f093fb,#f5576c); color:white; padding:8px 22px; border-radius:20px; font-size:14px; font-weight:600;">
+          Go to Blog →
+        </span>
+      </div>
+    </div>
+  </a>
+
+</div>
+{% endblock %}
