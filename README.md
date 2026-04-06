@@ -47,4 +47,4 @@ This project helps us understand and know how to dockerize an application (pytho
 
 ## 7- To access the app in browser
 
-- Run `http://localhost:80/`
+- open http://localhost:80/ in your browser
