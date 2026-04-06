@@ -7,7 +7,6 @@ This project helps us understand and know how to dockerize an application (pytho
 ### Introduction
 
 - Tech stack: `python`, `docker`, `flask`
-- To get basic concept of these tools, you could visit: [**devops-basic**](https://github.com/tungbq/devops-basic) repository
 
 ### Prerequisite
 
@@ -16,7 +15,7 @@ This project helps us understand and know how to dockerize an application (pytho
 
 ## 1-Install docker
 
-- See: [how-to-install-docker](https://github.com/tungbq/devops-basic/tree/main/topics/docker#how-to-install-docker)
+- Docker engine
 
 ## 2-Build the docker image
 
@@ -30,3 +29,22 @@ This project helps us understand and know how to dockerize an application (pytho
 
 - `curl localhost:5000`
 - Or open http://localhost:5000/ in your browser
+
+----------------------------------------------------------------------------------------------
+
+## 5- I have extented this more in Kubernetes
+
+- Created a deployment and service yml files inside 'app-ns' namespace and added basic requirements for kubernetes with port: 80-external port and targetport: 5000
+- I have set the number of replicas to 10 and added rolling update strategy with maxUnavailable: 3 and maxSurge: 3
+- I have applied the deployment and service files using
+ `kubectl apply -f k8s/deployment.yml`
+ `kubectl apply -f k8s/service.yml`
+
+## 6- To verify the result pod running
+
+- Run `kubectl get pod -n app-ns`
+- Run `kubectl get svc -n app-ns`
+
+## 7- To access the app in browser
+
+- Run `http://localhost:80/`
