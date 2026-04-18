@@ -23,12 +23,12 @@ This project helps us understand and know how to dockerize an application (pytho
 
 ## 3-Run the Docker container based on the image
 
-- Run `docker run -p 5000:5000 my-flask-app`
+- Run `docker run -p 8080:5000 my-flask-app`
 
 ## 4-Verify the result
 
 - `curl localhost:5000`
-- Or open http://localhost:5000/ in your browser
+- Or open http://localhost:8080/ in your browser
 
 ----------------------------------------------------------------------------------------------
 
