@@ -27,7 +27,6 @@ This project helps us understand and know how to dockerize an application (pytho
 
 ## 4-Verify the result
 
-- `curl localhost:5000`
 - Or open http://localhost:8080/ in your browser
 
 ----------------------------------------------------------------------------------------------
